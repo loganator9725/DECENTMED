@@ -1,6 +1,8 @@
 /* MASTER FONT STANDARD */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Varela+Round&display=swap');
+
 * {
-  font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 html, body, #root {
   margin: 0;
@@ -53,36 +55,36 @@ html, body, #root {
 
 
 h1 {
-  font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean & professional font */
-  font-weight: 800; /* slightly bold for emphasis without being heavy */
-  font-size: 2.8rem; /* slightly larger for readability */
-  color: #201616; /* deep green, professional healthcare feel */
-  margin-bottom: 1.2rem;
-  line-height: 1.2; /* clean spacing */
-  letter-spacing: 1px; /* subtle spacing for elegance */
-  text-align: center; /* centered headings for a professional look */
-letter-spacing: 2px; /* characters er moddhe gap */
-  word-spacing: 5px;
+  font-family: 'Dancing Script', cursive; /* Elegant script font */
+  font-weight: 700; /* Bold for emphasis */
+  font-size: 3.5rem; /* Larger for impact */
+  color: #FFC0CB; /* Soft pink */
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 h2 {
-  font-family: sans-serif;
-  font-size: 2rem;
-  color: #2d1e1e;       /* pure black */
-  font-weight: 800;     /* bold */
-  margin-bottom: 1rem;
-letter-spacing: 2px; /* characters er moddhe gap */
-  word-spacing: 5px;
+  font-family: 'Dancing Script', cursive; /* Elegant script font */
+  font-size: 2.5rem;
+  color: #E6E6FA; /* Soft lavender */
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
-  font-family: sans-serif;
-  font-size: 1.5rem;
-  color: #2b2222;       /* pure black */
-  font-weight: 800;     /* bold */
-  margin-bottom: 0.75rem;
-letter-spacing: 4px; /* characters er moddhe gap */
+  font-family: 'Varela Round', sans-serif; /* Consistent rounded font */
+  font-size: 1.8rem;
+  color: #333; /* Darker text for readability */
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 
@@ -143,6 +145,7 @@ h2 {
 /* Page content top padding দিতে হবে */
 .page-content {
   margin-top: 120px; /* navbar height অনুযায়ী adjust করো */
+  padding: 2rem;
   /* animation: contentEntrance 0.7s ease-out;
   animation-delay: 0.2s; */
 
@@ -151,13 +154,20 @@ h2 {
 @media (max-width: 880px) {
   .page-content {
     margin-top: 160px;
+    padding: 1rem;
   }
+}
+
+p {
+  line-height: 1.8;
 }
 /* Smooth hover effect for links or buttons */
 button,
 a {
   transition: all 0.3s ease;
+  border-radius: 15px; /* Rounded corners */
 }
+
 @keyframes topbarEntrance {
   0% {
     opacity: 0;
@@ -185,6 +195,7 @@ button:hover,
 a:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  filter: brightness(110%); /* Brighter on hover */
 }
 .wide-search {
   max-width: 400px;
@@ -192,7 +203,7 @@ a:hover {
 }
 /* Add a subtle background gradient */
 body {
-  background-color: #ffffff; /* Replace with your original color */
+  background-color: #FFFDD0; /* Soft cream background */
   margin: 0;
   padding: 0;
 }
@@ -226,14 +237,10 @@ body {
   margin-top: 10px;
 }
 .card-body {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Adds a slight dark overlay for text contrast */
+  background-color: rgba(255, 192, 203, 0.5); /* Semi-transparent soft pink */
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 .collapsible-content {
   padding: 16px;
@@ -464,13 +471,15 @@ body {
   max-width: 70%;
 }
 .box {
-  border: 10px solid #ccc; /* Example border color */
+  border: 10px solid #E6E6FA; /* Soft lavender border */
   margin: 5% auto; /* Center with responsive margin */
   padding: 20px; /* Increase padding for more space inside the box */
   text-align: center;
   display: flex;
   flex-direction: column; /* Arrange elements vertically */
   width: 100%; /* Increase the width to make the box larger */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 15px; /* Rounded corners */
   /* max-width: 800px;  */
 }
 
@@ -522,8 +531,8 @@ min-height: 100%;
   padding: 10px 30px; /* Add some padding */
 }
 .collapsible-button {
-  background-color: #0d6efd !important; /* Bootstrap primary blue */
-  border-color: #0d6efd !important;
+  background-color: #FFC0CB !important; /* Soft pink */
+  border-color: #FFC0CB !important;
 }
 /* Ensures buttons are centered and stacked on top of each other */
 .button-container {
@@ -553,23 +562,22 @@ min-height: 100%;
   transition: color 0.3s ease;
   border-radius: 8px;
   padding: 8px;
-  /* color: white; */
+  color: white; /* White text for contrast on navbar */
 }
 .me-auto a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
-  /* background-color: blue; */
-  color: black;
+  color: #FFC0CB; /* Soft pink on hover */
 }
 .me-auto {
   gap: 10px;
 }
 .box p {
   word-break: break-all; /* Break long words like BTC addresses */
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.6;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #fffef2;
   border-radius: 8px;
   margin: 10px 0;
   overflow-wrap: anywhere;
@@ -626,21 +634,21 @@ min-height: 100%;
 /* Small Devices (≥576px) */
 @media (min-width: 576px) {
   .grid-contain {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
   }
 }
 
 /* Medium Devices (≥768px) */
 @media (min-width: 768px) {
   .grid-contain {
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
   }
 }
 
 /* Large Devices (≥1024px) */
 @media (min-width: 1024px) {
   .grid-contain {
-    grid-template-columns: repeat(7, 1fr); /* 6 columns */
+    grid-template-columns: repeat(6, 1fr); /* 6 columns */
   }
 }
 
@@ -975,7 +983,7 @@ h4 {
   text-indent: -7%;
 }
 .navbar-container {
-  background-color: #00695c;
+  background-color: #E6E6FA; /* Soft lavender */
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
@@ -989,7 +997,7 @@ h4 {
 }
 
 .navbar-container .nav-link:hover {
-  color: #c8fff4 !important;
+  color: #FFC0CB !important;
 }
 
 .navbar-container .dropdown-menu {
@@ -1097,12 +1105,12 @@ h4 {
 
 button[type="submit"] {
   width: 100%;
-  background-color: #4caf50;
+  background-color: #FFC0CB;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px; /* Rounded corners */
   cursor: pointer;
 }
 .container-content {
@@ -1125,20 +1133,20 @@ button[type="submit"] {
 }
 
 .container-blue {
-  background-color: whitesmoke; /* Bootstrap primary blue color */
-  border: 2px solid whitesmoke; /* Darker blue border */
+  background-color: #FFFDD0; /* Soft cream */
+  border: 2px solid #E6E6FA; /* soft lavender */
   padding: 20px; /* Add some padding inside the container */
-  border-radius: 8px; /* Optional: rounded corners */
+  border-radius: 15px; /* Optional: rounded corners */
   color: black; /* White text color for contrast */
   margin: 0 auto;
 }
 .container-bblue {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke; /* Bootstrap primary blue color */
-  border: 2px solid white; /* Darker blue border */
+  background-color: #FFFDD0; /* Soft cream */
+  border: 2px solid #E6E6FA; /* soft lavender */
   padding: 20px; /* Add some padding inside the container */
-  border-radius: 8px; /* Optional: rounded corners */
+  border-radius: 15px; /* Optional: rounded corners */
   color: black; /* White text color for contrast */
 }
 input[type="text"],
@@ -1188,7 +1196,7 @@ select {
 /* Video container for responsiveness */
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #f8a7b9;
 }
 
 @media (max-width: 768px) {
@@ -1247,8 +1255,8 @@ input[type="submit"]:hover {
 
 /* Footer container */
 .footer-container {
-  padding: 60px 8px;
-  bottom: 10px;
+  padding: 40px 8px;
+  background-color: #E6E6FA;
   position: relative;
 }
 
@@ -1352,9 +1360,9 @@ input[type="submit"]:hover {
   bottom: 0;
 }
 .plant-card {
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #FFFDD0;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(255, 192, 203, 0.4);
   text-align: center;
   padding: 16px;
 }
@@ -1489,7 +1497,7 @@ table {
 }
 
 thead th {
-  background-color: #f4f4f4; /* Light gray background for headers */
+  background-color: #E6E6FA; /* soft lavender */
   font-weight: 600; /* Semi-bold text for headers */
   text-align: center; /* Center align text */
   padding: 12px; /* Space inside header cells */
@@ -1504,7 +1512,7 @@ tbody td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Alternate row color */
+  background-color: #FFFDD0; /* soft cream */
 }
 
 tbody tr:nth-child(odd) {
@@ -1573,7 +1581,7 @@ td:last-child {
   margin-top: 40px;
   padding: 20px;
   text-align: center;
-  border: 4px solid #ccc;
+  border: 4px solid #E6E6FA;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -1851,14 +1859,14 @@ td:last-child {
 
   .contact-form input:focus {
     outline: none;
-    border-color: #0066ff;
-    box-shadow: 0 0 5px rgba(0, 102, 255, 0.2);
+    border-color: #FFC0CB;
+    box-shadow: 0 0 5px rgba(255, 192, 203, 0.5);
   }
 
   .contact-form button {
     width: 100%;
     padding: 14px;
-    background-color: #0066ff;
+    background-color: #FFC0CB;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -1869,7 +1877,7 @@ td:last-child {
   }
 
   .contact-form button:hover {
-    background-color: #004bcc;
+    background-color: #f8a7b9;
   }
 
   .contact-form p {
@@ -1927,7 +1935,7 @@ td:last-child {
   max-width: 500px;
   margin: 20px auto;
   padding: 30px 25px;
-  background-color: #f9f9f9;
+  background-color: #FFFDD0;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
