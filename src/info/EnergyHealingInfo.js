@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import backPainImage from '../images copy/reiki.jpg';
+import emotionalBurdensImage from '../images copy/medi.jpg';
+import transformingMindsetsImage from '../images copy/IMG7_WISDOM.jpg';
 
 function EnergyHealingInfo() {
   const { t } = useTranslation();
