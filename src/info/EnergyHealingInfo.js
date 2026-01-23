@@ -131,16 +131,24 @@ const EnergyHealingInfo = ({ t }) => {
         </div>
       </div>
 
-      {/* SECTION 4: DOWNLOAD PDF */}
-      <div className="download-section">
+      {/* SECTION 4: CTA SECTION - EDUCATION & SIGNUP */}
+      <div className="cta-section">
         <p>{t('Want to dive deeper? Download the full guide covering detailed anatomy, emotions, and exercises.')}</p>
-        <a 
-          href={presentationPdf} 
-          download="Healing_Your_Back_Presentation.pdf" 
-          className="download-button"
-        >
-          {t('Download Full Presentation PDF')}
-        </a>
+        <div className="cta-buttons-container">
+          <a 
+            href={presentationPdf} 
+            download="Healing_Your_Back_Presentation.pdf" 
+            className="cta-button education-button"
+          >
+            {t('📚 Download Full Guide')}
+          </a>
+          <a 
+            href="/signup" 
+            className="cta-button signup-button"
+          >
+            {t('✨ Join & Start Healing')}
+          </a>
+        </div>
       </div>
 
       {/* SECTION 5: FOOTER & CONTACT */}
