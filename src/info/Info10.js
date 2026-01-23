@@ -1,6 +1,7 @@
 import React from "react";
 import './acu.css'; 
 import './Info.css';
+import './SoundHealingInfo.css';
 import event0 from "../images copy/eventt.png";
 import event from "../images copy/events.png";
 import event1 from "../images copy/event1.png";
@@ -13,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const Info11 = () => {
 const {t} = useTranslation('common')
     return (
-      <div className='container mobile-optimized'>
+      <div className='sound-healing-container'>
           <h1 style={{
     textDecoration: 'underline',
     textAlign: 'center',
@@ -40,113 +41,47 @@ const {t} = useTranslation('common')
           <p className="pr">{t("Sound healing is a restorative wellness practice that uses carefully curated sound frequencies to guide the body and mind into deep relaxation. By slowing brainwave activity and calming the nervous system, sound healing supports stress reduction, emotional balance, and mental clarity. Participants often experience improved sleep, reduced anxiety, and a greater sense of grounding, making sound healing an effective complement to modern wellness programs—particularly for healthcare professionals and teams seeking sustainable stress management.")}</p>
           <Button className="custom-btn" href="https://decentmed.org/soundhealers" target="_blank">{t("Book Sound Healing Session")}</Button>  {/* Added Bootstrap Button */}
         </div>
-         <div>
-            <iframe class="rumble" title="Sound Healing" width="640" height="360" src="https://www.youtube.com/embed/3wMDLvsGszU?si=jH-somtaNgNFsU2J" frameborder="0" allowfullscreen></iframe>
+         <div className="horizontal-video-wrapper">
+            <iframe title="Sound Healing" src="https://www.youtube.com/embed/3wMDLvsGszU?si=jH-somtaNgNFsU2J" allowFullScreen></iframe>
           </div>
         </div>
-        
-      </div>
     <div className="vertical-video">
   <iframe 
-    className="rumble" 
     title="Sound Healing" 
     src="https://www.youtube.com/embed/fMwMZZcSFr0" 
     allowFullScreen>
   </iframe>
 </div>
        <Button className="custom-btn" href="https://unioniscreation.com/" target="_blank">{t('Experience Sound Healing')}</Button>
-      <br></br>
                   <h1 style={{
     textDecoration: 'underline',
     textAlign: 'center',
     fontFamily: 'sans-serif',
-    marginTop: '4.5rem',
-    paddingTop: '3rem'
+    marginTop: '2rem',
+    paddingTop: '1rem'
   }}>{t('Healing Sounds Testimonial')}</h1>
-             <div style={{
-  position: 'relative',
-  width: '100%',
-  maxWidth: '360px',
-  margin: '0 auto',
-  aspectRatio: '9/16'
-}}>
+      <div className="testimonial-videos-grid">
+        <div className="testimonial-video-wrapper">
             <iframe 
-    className="rumble" 
     title="Sound Healing" 
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '8px',
-      border: 'none'
-    }}
-               src="https://www.youtube.com/embed/V77nj2hLZtg" frameborder="0" allowfullscreen></iframe>
+    src="https://www.youtube.com/embed/V77nj2hLZtg" allowFullScreen></iframe>
           </div>
-                    <div style={{
-  position: 'relative',
-  width: '100%',
-  maxWidth: '360px',
-  margin: '0 auto',
-  aspectRatio: '9/16'
-}}>
+                    <div className="testimonial-video-wrapper">
                <iframe 
-    className="rumble" 
     title="Sound Healing" 
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '8px',
-      border: 'none'
-    }}
-           src="https://www.youtube.com/embed/Fk1kKCbr184" frameborder="0" allowfullscreen></iframe>
+    src="https://www.youtube.com/embed/Fk1kKCbr184" allowFullScreen></iframe>
           </div>
-                             <div style={{
-  position: 'relative',
-  width: '100%',
-  maxWidth: '360px',
-  margin: '0 auto',
-  aspectRatio: '9/16'
-}}>
+                             <div className="testimonial-video-wrapper">
                    <iframe 
-    className="rumble" 
     title="Sound Healing" 
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '8px',
-      border: 'none'
-    }} 
-            src="https://www.youtube.com/embed/4oWQToBMxpE" frameborder="0" allowfullscreen></iframe>
+    src="https://www.youtube.com/embed/4oWQToBMxpE" allowFullScreen></iframe>
             </div>
-     <div style={{
-  position: 'relative',
-  width: '100%',
-  maxWidth: '360px',
-  margin: '0 auto',
-  aspectRatio: '9/16'
-}}>
+     <div className="testimonial-video-wrapper">
                    <iframe 
-    className="rumble" 
     title="Sound Healing" 
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '8px',
-      border: 'none'
-    }}
-             src="https://www.youtube.com/embed/TIdvnXPirrg" frameborder="0" allowfullscreen></iframe>
+    src="https://www.youtube.com/embed/TIdvnXPirrg" allowFullScreen></iframe>
             </div>
+      </div>
       <style jsx>{`
         @media (max-width: 768px) {
         body, html { background: none !important; background-color: transparent !important; }
