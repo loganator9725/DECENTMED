@@ -34,6 +34,7 @@ import { Chiropractic } from '../pages/Chiropractic';
 import { Chelation } from '../pages/Chelation';
 import { Telehealth } from '../pages/Telehealth';
 import { EnergyHealing } from '../pages/EnergyHealing';
+import EnergyHealingInfo from '../info/EnergyHealingInfo';
 import { Apoth } from '../pages/Apoth';
 import { Chiro } from '../pages/ChiroPRACT';
 import { Breathwork } from '../pages/breathworkers';
@@ -99,6 +100,7 @@ export const MainRoutes = ({ t }) => (
     <Route path="/homeopathy" element={<Homeopathy t={t} />} />
     <Route path="/telehealth" element={<Telehealth t={t} />} />
     <Route path="/energy-healing" element={<EnergyHealing t={t} />} />
+    <Route path="/energy-healing-info" element={<EnergyHealingInfo t={t} />} />
     <Route path="/about" element={<About t={t} />} />
   </>
 );

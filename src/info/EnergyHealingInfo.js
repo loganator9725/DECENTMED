@@ -1,60 +1,173 @@
+import React, { useState } from 'react';
+import './EnergyHealingInfo.css';
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import backPainImage from '../images copy/reiki.jpg';
-import emotionalBurdensImage from '../images copy/medi.jpg';
-import transformingMindsetsImage from '../images copy/IMG7_WISDOM.jpg';
+// --- 1. ASSET IMPORTS ---
+// Using existing images from the project folder
+import backPainImage from '../images copy/stress.jpg';
+import emotionalBurdensImage from '../images copy/meditation.jpg';
+import transformingMindsetsImage from '../images copy/mindset.jpg';
+import presentationPdf from '../images copy/HealingBackPresentation.pdf'; 
 
-function EnergyHealingInfo() {
-  const { t } = useTranslation();
+// --- 2. DATA: AFFIRMATIONS (Extracted from PDF) ---
+const healingAffirmations = [
+  { id: 'general', condition: 'General Pain', affirmation: 'The past is over, I choose to love and approve of myself NOW!' },
+  { id: 'neck', condition: 'Neck', affirmation: 'It is safe to see other viewpoints, I am peaceful with life.' },
+  { id: 'upper', condition: 'Upper Back', affirmation: 'I love and approve of myself, life supports and loves me.' },
+  { id: 'middle', condition: 'Middle Back', affirmation: 'I release the past. I am free to move forward with love in my heart.' },
+  { id: 'lower', condition: 'Lower Back', affirmation: 'I trust the process of life. All I need is ALWAYS taken care of. I am SAFE.' },
+  { id: 'sciatica', condition: 'Sciatica', affirmation: 'I move into my greater good. My good is everywhere, and I am secure and safe.' },
+];
+
+// --- 3. DATA: BODY MAP (Extracted from PDF Anatomy) ---
+const bodyMappingData = [
+  {
+    id: 't3-zone',
+    title: 'T3 Zone (Upper Back & Neck)',
+    physical: 'Often caused by "fixed" positions like sitting at a computer. Muscles become "on fire" due to lack of blood flow.',
+    emotional: 'Feeling unsupported or unloved. Holding onto guilt.',
+    affirmation: 'I love and approve of myself. Life supports and loves me.'
+  },
+  {
+    id: 'middle-back',
+    title: 'Middle Back',
+    physical: 'General stiffness and aching from posture or overuse.',
+    emotional: 'Guilt and stuck in the past. "Get off my back" mentality.',
+    affirmation: 'I release the past. I am free to move forward with love in my heart.'
+  },
+  {
+    id: 'l4-s2',
+    title: 'L4 - S2 (Lower Back)',
+    physical: 'The most common area of "screaming pain." Often inflamed from overuse. Can involve fear of money/future.',
+    emotional: 'Fear of money or financial lack. Fear of the future.',
+    affirmation: 'I trust the process of life. All I need is ALWAYS taken care of.'
+  },
+  {
+    id: 'sciatica',
+    title: 'Sciatic Nerve',
+    physical: 'Pinching of the nerve causing numbness and deep pain.',
+    emotional: 'Being hypocritical. Fear of money and the future.',
+    affirmation: 'I move into my greater good. My good is everywhere, and I am secure and safe.'
+  }
+];
+
+const EnergyHealingInfo = ({ t }) => {
+  // State for the interactive Body Map (Accordion)
+  const [activeBodyPart, setActiveBodyPart] = useState(null);
+
+  const toggleBodyPart = (id) => {
+    setActiveBodyPart(activeBodyPart === id ? null : id);
+  };
 
   return (
-    <div>
-      <h1>{t("Unlock Your Body's Natural Healing Power: Energy Healing for Back Pain, Emotions, and Mindsets")}</h1>
-
-      <p>{t("Are you struggling with persistent back pain, emotional imbalances, or limiting mindsets that hold you back? You're not alone. Many people experience these challenges, often finding that conventional approaches only offer temporary relief. At [Your Website/Practice Name], we believe in a holistic path to well-being, harnessing the profound power of energy healing to address the root causes of your discomfort and empower you to live a life of vitality and joy.")}</p>
-
-      <h2>{t("What is Energy Healing?")}</h2>
-      <p>{t("Energy healing is an ancient, gentle, yet powerful approach that works with your body's subtle energy systems. It's based on the understanding that physical, emotional, and mental issues often stem from imbalances or blockages in your energy field. By identifying and clearing these disruptions, energy healing facilitates your body's innate ability to heal itself, promoting harmony and restoring balance on all levels.")}</p>
+    <div className="energy-healing-container">
       
-      <h2>{t("Healing Back Pain: Beyond the Physical")}</h2>
-      <p>{t("Back pain can be debilitating, impacting every aspect of your life. While physical factors are often at play, chronic back pain frequently has energetic and emotional components. Stress, unresolved trauma, and suppressed emotions can manifest as tension and blockages in the spine and surrounding tissues.")}</p>
-      <p>{t("Our energy healing sessions gently release these energetic imprints, alleviating muscle tension, improving energy flow, and reducing inflammation. Clients often report significant reductions in pain, increased flexibility, and a renewed sense of ease in their bodies. We don't just treat the symptom; we address the energetic patterns contributing to your discomfort, fostering lasting relief.")}</p>
-      <p>{t('[Image for "Healing Back Pain" will go here]')}</p>
+      {/* SECTION 1: VISUALS */}
+      <div className="healing-intro-section">
+        <h2>{t('Energy Healing & Mindset Transformation')}</h2>
+        <div className="healing-visuals">
+          <div className="visual-item">
+            <img src={backPainImage} alt={t('Healing Back Pain')} className="energy-healing-image" />
+            <p className="image-caption">{t('Healing Back Pain')}</p>
+          </div>
+          <div className="visual-item">
+            <img src={emotionalBurdensImage} alt={t('Releasing Emotional Burdens')} className="energy-healing-image" />
+            <p className="image-caption">{t('Releasing Emotional Burdens')}</p>
+          </div>
+          <div className="visual-item">
+            <img src={transformingMindsetsImage} alt={t('Transforming Mindsets')} className="energy-healing-image" />
+            <p className="image-caption">{t('Transforming Mindsets')}</p>
+          </div>
+        </div>
+      </div>
 
-      <h2>{t("Releasing Emotional Burdens: Find Your Inner Peace")}</h2>
-      <p>{t("Emotions are powerful, and when left unaddressed, they can create significant energetic blockages that impact your physical health and overall well-being. Feelings like anxiety, fear, anger, grief, and sadness can become trapped in your energy field, contributing to physical ailments and mental distress.")}</p>
-      <p>{t("Through targeted energy healing techniques, we help you identify and release these trapped emotions. This process can lead to profound emotional shifts, allowing you to:")}</p>
-      <ul>
-        <li>{t("Reduce stress and anxiety: Experience a calmer, more centered state.")}</li>
-        <li>{t("Process grief and trauma: Move forward with greater peace and acceptance.")}</li>
-        <li>{t("Cultivate self-love and confidence: Embrace your true self without judgment.")}</li>
-        <li>{t("Improve relationships: Foster healthier connections by clearing emotional baggage.")}</li>
-      </ul>
-      <p>{t('[Image for "Releasing Emotional Burdens" will go here]')}</p>
+      {/* SECTION 2: AFFIRMATION CARDS */}
+      <div className="affirmations-container">
+        <h3>{t('Healing Affirmations & Thought Patterns')}</h3>
+        <div className="affirmations-grid">
+          {healingAffirmations.map((item) => (
+            <div key={item.id} className="affirmation-card">
+              <h4>{t(item.condition)}</h4>
+              <p>"{t(item.affirmation)}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <h2>{t("Transforming Mindsets: Create Your Reality")}</h2>
-      <p>{t("Your mindset shapes your reality. Limiting beliefs, negative thought patterns, and self-sabotaging behaviors can keep you stuck, preventing you from achieving your full potential. These mental constructs are deeply embedded in your energetic blueprint.")}</p>
-      <p>{t("Energy healing works to clear the energetic roots of these limiting mindsets, opening you up to new possibilities. By shifting your energetic vibration, you can:")}</p>
-      <ul>
-        <li>{t("Overcome self-doubt: Step into your power and pursue your goals with confidence.")}</li>
-        <li>{t("Break free from old patterns: Release habits that no longer serve you.")}</li>
-        <li>{t("Attract abundance: Align your energy with your desires.")}</li>
-        <li>{t("Foster a positive outlook: Cultivate resilience and optimism.")}</li>
-      </ul>
-      <p>{t('[Image for "Transforming Mindsets" will go here]')}</p>
-      
-      <h2>{t("Your Journey to Holistic Well-being Starts Here")}</h2>
-      <p>{t("Imagine a life free from chronic pain, emotional turmoil, and self-limiting beliefs. Energy healing offers a gentle yet transformative path to achieving this vision. Our compassionate and experienced practitioners are dedicated to supporting you on your healing journey, creating a safe and nurturing space for profound change.")}</p>
+      {/* SECTION 3: INTERACTIVE BODY MAP */}
+      <div className="body-map-section">
+        <h3>{t('Interactive Body Map: Explore Your Pain')}</h3>
+        <p style={{textAlign: 'center', marginBottom: '20px'}}>{t('Click a zone below to discover its physical triggers and emotional roots.')}</p>
+        
+        <div className="body-map-container">
+          {bodyMappingData.map((part) => (
+            <div 
+              key={part.id} 
+              className={`body-part-item ${activeBodyPart === part.id ? 'active' : ''}`}
+              onClick={() => toggleBodyPart(part.id)}
+            >
+              <div className="body-part-header">
+                <h4>{t(part.title)}</h4>
+                <span className="toggle-icon">{activeBodyPart === part.id ? '−' : '+'}</span>
+              </div>
+              
+              {activeBodyPart === part.id && (
+                <div className="body-part-content">
+                  <div className="content-block">
+                    <strong>{t('Physical Trigger:')}</strong>
+                    <p>{t(part.physical)}</p>
+                  </div>
+                  <div className="content-block">
+                    <strong>{t('Emotional Root:')}</strong>
+                    <p>{t(part.emotional)}</p>
+                  </div>
+                  <div className="affirmation-highlight">
+                    <strong>{t('Healing Affirmation:')}</strong>
+                    <p>"{t(part.affirmation)}"</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <a href="https://totalhealingcentre.as.me/schedule/7ef1b0d0/appointment/1260576/calendar/514164?appointmentTypeIds[]=1260576" target="_blank" rel="noopener noreferrer">
-        <button>{t('Schedule Appointment')}</button>
-      </a>
-      <a href="https://thcclc.com/shop" target="_blank" rel="noopener noreferrer">
-        <button>{t('Visit Shop')}</button>
-      </a>
+      {/* SECTION 4: DOWNLOAD PDF */}
+      <div className="download-section">
+        <p>{t('Want to dive deeper? Download the full guide covering detailed anatomy, emotions, and exercises.')}</p>
+        <a 
+          href={presentationPdf} 
+          download="Healing_Your_Back_Presentation.pdf" 
+          className="download-button"
+        >
+          {t('Download Full Presentation PDF')}
+        </a>
+      </div>
+
+      {/* SECTION 5: FOOTER & CONTACT */}
+      <div className="healing-footer">
+        <h3>{t('Ready to Start Your Healing Journey?')}</h3>
+        <div className="footer-content">
+          <div className="footer-logo-text">
+            <h4>{t('THC - Total Healing Centre')}</h4>
+            <p>{t('Discover the power of healing your back, emotions, and mind.')}</p>
+          </div>
+          <div className="footer-actions">
+            <p>{t('Visit us for more resources and appointments:')}</p>
+            <a 
+              href="http://www.totalhealingcentre.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="website-link-button"
+            >
+              {t('Visit www.totalhealingcentre.com')}
+            </a>
+          </div>
+        </div>
+        <p className="footer-thank-you">{t('Thanks!')}</p>
+      </div>
+
     </div>
   );
-}
+};
 
 export default EnergyHealingInfo;

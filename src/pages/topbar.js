@@ -129,6 +129,15 @@ const Topbar = () => {
               {t("About Us")}
             </Nav.Link>
 
+            <Nav.Link
+              style={{ color: "white", transition: "0.2s" }}
+              onMouseEnter={(e) => (e.target.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
+              href="https://decentmed.org/energy-healing-info"
+            >
+              {t("Energy Healing")}
+            </Nav.Link>
+
             {isLoggedIn ? (
               <Nav.Link
                 style={{ color: "white", transition: "0.2s" }}
